@@ -1,24 +1,25 @@
 import React from 'react'
 import Bezier from './Bezier'
+import Chroma from 'chroma-js'
 
-const Bezierall = ({isVisible, seccol}) => {
-  console.log(isVisible, seccol)
+const Bezierall = ({isVis, seccol}) => {
+  let beziercols = []
+  let a = isVis.toString()
+  let b = seccol.toString()
   let visible = ''
-    if (isVisible !== '') {
+    if (isVis !== '') {
       visible = 'flex'
+      beziercols = Chroma.bezier([a, b]).scale().colors(6)
+      
     } else {
       visible = 'none'
     }
     
   return (
     <div className='bezierall' style={{display: visible}}>
-        <Bezier isvisible={isVisible}/>
-        <Bezier isvisible={isVisible}/>
-        <Bezier isvisible={isVisible}/>
-        <Bezier isvisible={isVisible}/>
-        <Bezier isvisible={isVisible}/>
-        <Bezier isvisible={isVisible}/>
         
+                 {beziercols.map((index) => { return <Bezier isvisible={visible} key={Math.random()} index={index}/>})}
+       
     </div>
   )
 }

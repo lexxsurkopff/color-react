@@ -2,8 +2,9 @@ import React from 'react'
 import Chroma from 'chroma-js'
 import Coltext from './Coltext'
 
-const Comps = ({inColor, value}) => {
+const Comps = ({inColor , value}) => {
   let compColor = ''
+  
   if (inColor !== '') {
     const hslcolor = Chroma(inColor).hsl()
     const h = hslcolor[0]
@@ -20,7 +21,7 @@ const Comps = ({inColor, value}) => {
     value(compColor)
   } else {
     return
-  }
+  } 
   return (
     <div className='comps' style={{background: compColor}}>
       <Coltext text={compColor}/>

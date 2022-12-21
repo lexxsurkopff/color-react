@@ -21,7 +21,8 @@ const Cols = (ids) => {
     let [hex, setHex] = useState('')
     const hexCol = (hex) => {
       setHex(hex)
-    }  
+    } 
+    
     const [angle, setAngle] = useState(50) 
     const splitAngle = (angle) => {
       setAngle(angle)
@@ -35,7 +36,12 @@ const Cols = (ids) => {
       const getLum = (Lum) => {
       setLum(Lum)
     } 
-     
+    
+    const [seccol, setSeccol]=useState('')
+    const endColor = (endcolor) => {
+    setSeccol(endcolor)  
+    }   
+    
     if (hex !== '') { 
     const oldcolor = Chroma(hex).hsl()
     const h = oldcolor[0]
@@ -45,19 +51,16 @@ const Cols = (ids) => {
     hex = newcolor
     } else {
       hex = ''
+      
     }
-  const [seccol, setSeccol]=useState('')
-  const endColor = (endcolor) => {
-  setSeccol(endcolor)
-  //console.log(endcolor)
-  }
+    
     
   return (
     <div className='colcontainer'>
     <div className='col' style={{background: hex}}>
       <Splitcol angle={angle} text={hex}/>
       <AngleInput onChange={splitAngle} value={angle} isVisible={hex}/>
-      <Comps inColor={hex} value={endColor}/>
+      <Comps inColor={hex} value={endColor}/> 
       <Coltext text={hex}/>
       <Bezierbtn isVisible={hex}/>
       <Splitbtn isVisible={hex}/>
@@ -68,7 +71,7 @@ const Cols = (ids) => {
       <Delcol id={ids.ids}/> 
      
     </div>
-    <Bezierall isVisible={hex} seccol={seccol}/>
+    <Bezierall isVis={hex} seccol = {seccol}/>
     </div>
   )
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Bezier = ({isvisible}) => {
+const Bezier = ({isvisible, index}) => {
   
   let visible = ''
     if (isvisible !== '') {
@@ -9,7 +9,7 @@ const Bezier = ({isvisible}) => {
       visible = 'none'
     }
   return (
-    <div className='bezier' style={{display: visible}} ></div>
+    <div className='bezier' style={{display: visible, background: index}}></div>
   )
 }
 
