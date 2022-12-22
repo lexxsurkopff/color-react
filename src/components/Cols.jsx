@@ -16,11 +16,13 @@ import Bezierbtn from './Bezierbtn';
 
 
 const Cols = (ids) => {
-  
     
-    let [hex, setHex] = useState('')
-    const hexCol = (hex) => {
-      setHex(hex)
+    let [ColObj, setHex] = useState({
+      startcol: '',
+      endcol: ''
+    })
+    const hexCol = (colColObj) => {
+      setHex(colColObj)
     } 
     
     const [angle, setAngle] = useState(50) 
@@ -37,41 +39,44 @@ const Cols = (ids) => {
       setLum(Lum)
     } 
     
-    const [seccol, setSeccol]=useState('')
-    const endColor = (endcolor) => {
-    setSeccol(endcolor)  
-    }   
-    
-    if (hex !== '') { 
-    const oldcolor = Chroma(hex).hsl()
+    if (ColObj.startcol !== '') { 
+    const oldcolor = Chroma(ColObj.startcol).hsl()
     const h = oldcolor[0]
     const s = sat/100 
     const l = lum/100
     const newcolor = Chroma.hsl([h, s, l, 1]).hex().toUpperCase()
-    hex = newcolor
+    ColObj.startcol = newcolor
     } else {
-      hex = ''
-      
+      ColObj.startcol = ''
     }
-    
+    if (ColObj.endcol !== '') { 
+      const oldcolor2 = Chroma(ColObj.endcol).hsl()
+      const h2 = oldcolor2[0]
+      const s2 = sat/100 
+      const l2 = lum/100
+      const newcolor2 = Chroma.hsl([h2, s2, l2, 1]).hex().toUpperCase()
+      ColObj.endcol = newcolor2
+      } else {
+        ColObj.endcol = ''
+      }
     
   return (
     <div className='colcontainer'>
-    <div className='col' style={{background: hex}}>
-      <Splitcol angle={angle} text={hex}/>
-      <AngleInput onChange={splitAngle} value={angle} isVisible={hex}/>
-      <Comps inColor={hex} value={endColor}/> 
-      <Coltext text={hex}/>
-      <Bezierbtn isVisible={hex}/>
-      <Splitbtn isVisible={hex}/>
-      <Compbtn isVisible={hex}/>
+    <div className='col' style={{background: ColObj.startcol}}>
+      <Splitcol angle={angle} text={ColObj.startcol}/>
+      <AngleInput onChange={splitAngle} value={angle} isVisible={ColObj.startcol}/>
+      <Comps inColor={ColObj.endcol}/> 
+      <Coltext text={ColObj.startcol}/>
+      <Bezierbtn isVisible={ColObj.startcol}/>
+      <Splitbtn isVisible={ColObj.startcol}/>
+      <Compbtn isVisible={ColObj.startcol}/>
       <Rldbtn onClick={hexCol}/>
-      <Setsat onChange={getSat} isVisible={hex}/>
-      <Setlum onChange={getLum} isVisible={hex}/>
+      <Setsat onChange={getSat} isVisible={ColObj.startcol}/>
+      <Setlum onChange={getLum} isVisible={ColObj.startcol}/>
       <Delcol id={ids.ids}/> 
      
     </div>
-    <Bezierall isVis={hex} seccol = {seccol}/>
+    <Bezierall isVis={ColObj.startcol} seccol = {ColObj.endcol} />
     </div>
   )
 
