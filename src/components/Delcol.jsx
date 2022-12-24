@@ -5,7 +5,7 @@ const Delcol = (props) => {
   const {removeCols} = useContext(Context)
       
        return (
-         <button className='rld' onClick={() => removeCols(props.id)}><i className="fa-solid fa-trash"></i></button>
+         <button className='rld del' onClick={() => removeCols(props.id)}><i className="fa-solid fa-trash"></i></button>
        )
      
 }

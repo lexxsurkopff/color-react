@@ -15,7 +15,7 @@ const Setlum = ({onChange, isVisible}) => {
         setLum(event.target.value)
     }
   return (
-    <div className='rangeInput' style={{display: visible}}>
+    <div className='rangeInput lum' style={{display: visible}}>
     <input className = "change" type="range" min="1" max="99" onChange={satChange}/><br/>
     <h4>base luminance {lum} %</h4>
 </div>

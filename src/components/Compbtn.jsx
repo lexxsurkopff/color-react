@@ -6,7 +6,7 @@ const Compbtn = ({isVisible, setid, onClick}) => {
     if (isVisible === '') {
       visible = 'none'
     } else {
-      visible = 'flex'
+      visible = 'block'
     }
     function getVis () {
       let visObj = {visComp: ''}
@@ -20,7 +20,7 @@ const Compbtn = ({isVisible, setid, onClick}) => {
     }   
     
   return (
-    <button className='rld' style={{display: visible}} onClick={getVis}><i className="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+    <button className='rld comp' style={{display: visible}} onClick={getVis}><i className="fa-solid fa-up-right-and-down-left-from-center"></i></button>
   )
 
 }

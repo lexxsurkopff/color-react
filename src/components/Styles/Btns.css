@@ -1,4 +1,6 @@
 .rld {
+    position: absolute;
+    bottom: 17%;
     width: 30px;
     height: 30px;
     background: rgba(0, 0, 0, 0.2);
@@ -7,10 +9,28 @@
     border-radius: 3px;
     color: #FFF;
     cursor: pointer;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
 }
+
+.rld.comp {
+    position: absolute;
+    bottom: 23%;
+}
+.rld.splt {
+    position: absolute;
+    bottom: 29%;
+}
+.rld.grd {
+    position: absolute;
+    bottom: 35%;
+}
+.rld.del {
+    position: absolute;
+    bottom: 1%;
+}
+
 .addbtn {
     
     width: 150px;

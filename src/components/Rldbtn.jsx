@@ -21,9 +21,7 @@ const Rldbtn = ({onClick}) => {
     compColor = Chroma.hsl([hue, s, l, 1]).hex().toUpperCase()
     let colColObj = {
       startcol: hex,
-      endcol: compColor,
-      visComp: 'flex',
-      visSplit: 'flex'
+      endcol: compColor
     }
     onClick(colColObj) 
      

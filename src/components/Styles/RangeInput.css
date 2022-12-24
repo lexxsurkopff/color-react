@@ -1,5 +1,21 @@
-.rangeInput {
-    width: 90%;
+.rangeInput.angle {
+    position: absolute;
+    top: 140px;
+    width: 80%;
+    align-items: center;
+    text-align: center;
+}
+.rangeInput.lum {
+    position: absolute;
+    bottom: 7%;
+    width: 80%;
+    align-items: center;
+    text-align: center;
+}
+.rangeInput.sat {
+    position: absolute;
+    bottom: 11%;
+    width: 80%;
     align-items: center;
     text-align: center;
 }

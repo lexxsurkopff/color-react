@@ -15,7 +15,7 @@ const Splitbtn = ({isVisible}) => {
      
        return (
         
-         <button className='rld' style={{display: visible}} onClick={getComp}><i className="fa-solid fa-circle-nodes"></i></button>
+         <button className='rld splt' style={{display: visible}} onClick={getComp}><i className="fa-solid fa-circle-nodes"></i></button>
         
          )
      

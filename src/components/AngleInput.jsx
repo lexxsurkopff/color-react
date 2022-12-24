@@ -16,7 +16,7 @@ const AngleInput = ({ onChange, value, isVisible }) => {
           
     
   return (
-    <div className='rangeInput'>
+    <div className='rangeInput angle'>
         <input className = "change" style={{display: visible}} type="range" min="1" max="359" onChange={angleChange}/><br/>
         <h4 style={{display: visible}}>split {value} grad</h4>
     </div>

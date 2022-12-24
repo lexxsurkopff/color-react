@@ -57,32 +57,28 @@ body {
     min-width: 150px;
     width: 80%;
     height: 100%;
-   padding: 10px;
+    
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     font-size: 10px;
+    position: relative;
 }
 
 
 
 .bezierall {
-    
-    margin-right: 10px;
-    margin-left: 5px;
     width: 20%;
     height: 100%;
     min-width: 30px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border: 0px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    
 }
 
 .bezier {
@@ -92,13 +88,13 @@ body {
     min-width: 30px;
     
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .comps {
-    
-    padding: 10px;
-    width: 100%;
+    position: absolute;
+    top: 180px;
+    width: 92%;
     height: 20%;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -110,9 +106,10 @@ body {
 }
 
 .split {
-   
+    position: absolute;
+    top: 10px;
     
-    width: 100%;
+    width: 92%;
     height: 20%;
     border: 0px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;

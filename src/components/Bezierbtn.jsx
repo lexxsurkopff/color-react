@@ -15,7 +15,7 @@ const Bezierbtn = ({isVisible}) => {
     } 
   
     return (
-      <button className='rld' style={{display: visible}} onClick={addBezier}><i className="fa-solid fa-grip-vertical"></i></button>
+      <button className='rld grd' style={{display: visible}} onClick={addBezier}><i className="fa-solid fa-grip-vertical"></i></button>
     )
 }
 

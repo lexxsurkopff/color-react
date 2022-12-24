@@ -18,7 +18,7 @@ const Setsat = ({ onChange, isVisible }) => {
     
   
   return (
-    <div className='rangeInput'  style={{display: visible}}>
+    <div className='rangeInput sat'  style={{display: visible}}>
     <input className = "change" type="range" min="1" max="99" onChange={satChange}/><br/>
     <h4>base saturation {sat} %</h4>
 </div>
