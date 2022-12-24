@@ -16,19 +16,26 @@ import Bezierbtn from './Bezierbtn';
 
 
 const Cols = (ids) => {
-    
     let [ColObj, setHex] = useState({
       startcol: '',
       endcol: ''
     })
+
+    let [visObj, setVis] = useState({
+      visComp: ''
+    })
+    
     const hexCol = (colColObj) => {
       setHex(colColObj)
-    } 
+    }
     
+    const getVis = (visObj) => {
+    setVis(visObj)
+    } 
+
     const [angle, setAngle] = useState(50) 
     const splitAngle = (angle) => {
       setAngle(angle)
-      
     }
     const [sat, setSat] = useState(50) 
     const getSat = (sat) => {
@@ -40,12 +47,13 @@ const Cols = (ids) => {
     } 
     
     if (ColObj.startcol !== '') { 
-    const oldcolor = Chroma(ColObj.startcol).hsl()
-    const h = oldcolor[0]
-    const s = sat/100 
-    const l = lum/100
-    const newcolor = Chroma.hsl([h, s, l, 1]).hex().toUpperCase()
-    ColObj.startcol = newcolor
+      const oldcolor = Chroma(ColObj.startcol).hsl()
+      const h = oldcolor[0]
+      const s = sat/100 
+      const l = lum/100
+      const newcolor = Chroma.hsl([h, s, l, 1]).hex().toUpperCase()
+      ColObj.startcol = newcolor
+    
     } else {
       ColObj.startcol = ''
     }
@@ -60,16 +68,18 @@ const Cols = (ids) => {
         ColObj.endcol = ''
       }
     
+      
+    
   return (
     <div className='colcontainer'>
     <div className='col' style={{background: ColObj.startcol}}>
       <Splitcol angle={angle} text={ColObj.startcol}/>
       <AngleInput onChange={splitAngle} value={angle} isVisible={ColObj.startcol}/>
-      <Comps inColor={ColObj.endcol}/> 
+      <Comps inColor={ColObj.endcol} vis={visObj.visComp}  id={ids.ids}/> 
       <Coltext text={ColObj.startcol}/>
       <Bezierbtn isVisible={ColObj.startcol}/>
       <Splitbtn isVisible={ColObj.startcol}/>
-      <Compbtn isVisible={ColObj.startcol}/>
+      <Compbtn isVisible={ColObj.startcol} onClick={getVis} setid={ids.ids}/>
       <Rldbtn onClick={hexCol}/>
       <Setsat onChange={getSat} isVisible={ColObj.startcol}/>
       <Setlum onChange={getLum} isVisible={ColObj.startcol}/>
