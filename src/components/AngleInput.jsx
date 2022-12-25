@@ -17,6 +17,7 @@ const AngleInput = ({ onChange, value, isVisible, vis }) => {
     if (vis === '') {
       visible = 'none'
     } else {
+      vis = 'block'
       visible = vis
     }
     
