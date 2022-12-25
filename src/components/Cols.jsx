@@ -20,19 +20,27 @@ const Cols = (ids) => {
       startcol: '',
       endcol: ''
     })
-
-    let [visObj, setVis] = useState({
+    let [visCompObj, setCompVis] = useState({
       visComp: ''
     })
-    
+    let [visSplitObj, setSplitVis] = useState({
+      visSplit: ''
+    })
+    let [gradeVisObj, setGradeVis] = useState({
+      gradeVis: ''
+    })
     const hexCol = (colColObj) => {
       setHex(colColObj)
     }
-    
-    const getVis = (visObj) => {
-    setVis(visObj)
+    const getVisComp = (visCompObj) => {
+    setCompVis(visCompObj)
     } 
-
+    const getVisSplit = (visSplitObj) => {
+    setSplitVis(visSplitObj)
+    }
+    const getVisGrade = (gradeVisObj) => {
+      setGradeVis(gradeVisObj) 
+    }
     const [angle, setAngle] = useState(50) 
     const splitAngle = (angle) => {
       setAngle(angle)
@@ -68,25 +76,23 @@ const Cols = (ids) => {
         ColObj.endcol = ''
       }
     
-      
-    
   return (
     <div className='colcontainer'>
     <div className='col' style={{background: ColObj.startcol}}>
-      <Splitcol angle={angle} text={ColObj.startcol}/>
-      <AngleInput onChange={splitAngle} value={angle} isVisible={ColObj.startcol}/>
-      <Comps inColor={ColObj.endcol} vis={visObj.visComp}  id={ids.ids}/> 
+      <Splitcol angle={angle} text={ColObj.startcol} id={ids.ids} vis={visSplitObj.visSplit}/>
+      <AngleInput onChange={splitAngle} value={angle} isVisible={ColObj.startcol} vis={visSplitObj.visSplit}/>
+      <Comps inColor={ColObj.endcol} vis={visCompObj.visComp}  id={ids.ids}/> 
       <Coltext text={ColObj.startcol}/>
-      <Bezierbtn isVisible={ColObj.startcol}/>
-      <Splitbtn isVisible={ColObj.startcol}/>
-      <Compbtn isVisible={ColObj.startcol} onClick={getVis} setid={ids.ids}/>
+      <Bezierbtn isVisible={ColObj.startcol} onClick={getVisGrade} id={ids.ids}/>
+      <Splitbtn isVisible={ColObj.startcol} onClick={getVisSplit} setid={ids.ids}/>
+      <Compbtn isVisible={ColObj.startcol} onClick={getVisComp} setid={ids.ids}/>
       <Rldbtn onClick={hexCol}/>
       <Setsat onChange={getSat} isVisible={ColObj.startcol}/>
       <Setlum onChange={getLum} isVisible={ColObj.startcol}/>
       <Delcol id={ids.ids}/> 
      
     </div>
-    <Bezierall isVis={ColObj.startcol} seccol = {ColObj.endcol} />
+    <Bezierall isVis={ColObj.startcol} seccol = {ColObj.endcol} id={ids.ids} vis={gradeVisObj.gradeVis}/>
     </div>
   )
 

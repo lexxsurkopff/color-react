@@ -1,24 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Styles/RangeInput.css'
 
-const AngleInput = ({ onChange, value, isVisible }) => {
+const AngleInput = ({ onChange, value, isVisible, vis }) => {
     
-    let visible = ''
+    let isvisible = ''
     if (isVisible === '') {
-      visible = 'none'
+      isvisible = 'none'
     } else {
-      visible = 'block'
+      isvisible = 'block'
     }
     
     const angleChange = (event) => { 
           onChange(event.target.value)
       }
-          
+    let visible = 'none'
+    if (vis === '') {
+      visible = 'none'
+    } else {
+      visible = vis
+    }
     
   return (
-    <div className='rangeInput angle'>
-        <input className = "change" style={{display: visible}} type="range" min="1" max="359" onChange={angleChange}/><br/>
-        <h4 style={{display: visible}}>split {value} grad</h4>
+    <div className='rangeInput angle' style={{display: visible}}>
+        <input className = "change" style={{display: isvisible}} type="range" min="1" max="359" onChange={angleChange}/><br/>
+        <h4 style={{display: isvisible}}>split {value} grad</h4>
     </div>
     
   )

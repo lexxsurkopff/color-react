@@ -2,7 +2,7 @@ import React from 'react'
 import Chroma from 'chroma-js'
 import Coltext from './Coltext'
 
-const Splitcol = ({angle, text}) => {
+const Splitcol = ({angle, text, id, vis}) => {
   let leftcolor =''
   let rightcolor =''
   if (text !== '') {
@@ -33,8 +33,14 @@ const Splitcol = ({angle, text}) => {
   } else {
     return
   }
+  let visible = 'none'
+  if (vis === '') {
+    visible = 'none'
+  } else {
+    visible = vis
+  } 
   return (
-    <div className='split'>
+    <div className='split'  id={id+'splt'} style={{display: visible}}>
         <div className='splitcols' style={{background: leftcolor}}>
             <Coltext text = {leftcolor}/>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Styles/Btns.css'
 
-const Bezierbtn = ({isVisible}) => {
+const Bezierbtn = ({isVisible, id, onClick}) => {
     
     let visible = ''
     if (isVisible === '') {
@@ -9,13 +9,20 @@ const Bezierbtn = ({isVisible}) => {
     } else {
       visible = 'block'
     }
-    const addBezier = () => {
-    const addbez =  {id: Date.now()+1}
-    //bez(addbez)
-    } 
+    const showHideBezier = () => {
+      let gradeVisObj = {gradeVis: ''}
+    const hideShowBezier = document.getElementById(id+'bzr')
+    if (hideShowBezier.style.display === 'flex') {
+    gradeVisObj.gradeVis = 'none'
+    } else {
+      gradeVisObj.gradeVis = 'flex'  
+    }
+    onClick(gradeVisObj)
+    }  
+    
   
     return (
-      <button className='rld grd' style={{display: visible}} onClick={addBezier}><i className="fa-solid fa-grip-vertical"></i></button>
+      <button className='rld grd' style={{display: visible}} onClick={showHideBezier}><i className="fa-solid fa-grip-vertical"></i></button>
     )
 }
 

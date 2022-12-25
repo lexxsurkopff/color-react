@@ -9,14 +9,14 @@ const Compbtn = ({isVisible, setid, onClick}) => {
       visible = 'block'
     }
     function getVis () {
-      let visObj = {visComp: ''}
+      let visCompObj = {visComp: ''}
       const compsShowHide = document.getElementById(setid)
       if (compsShowHide.style.display === 'flex') {
-        visObj.visComp = 'none' 
+        visCompObj.visComp = 'none' 
       } else  { 
-        visObj.visComp = 'flex'
+        visCompObj.visComp = 'flex'
       }
-      onClick(visObj)
+      onClick(visCompObj)
     }   
     
   return (

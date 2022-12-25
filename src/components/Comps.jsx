@@ -2,7 +2,7 @@ import React from 'react'
 import Coltext from './Coltext'
 
 const Comps = ({inColor, vis, id}) => {
-  let visible = ''
+  let visible = 'none'
  
   if (inColor === '') {
   visible = 'none'
@@ -11,7 +11,7 @@ const Comps = ({inColor, vis, id}) => {
   } else if (vis === 'flex') {
     visible = 'flex'
   } else {
-    visible = 'flex'
+    visible = 'none'
   }
   
   
